@@ -1,0 +1,33 @@
+[project]
+name = "vere"
+version = "0.1.0"
+description = "A Simple Terminal Research & Coding Assistant"
+requires-python = ">=3.11"
+dependencies = [
+    # Core Framework
+    "langgraph>=1.2",
+    "langchain>=1.4",
+
+    # Models (GLM when?)
+    "langchain-ollama>=1.1.0",
+    "langchain-openai>=1.6",
+
+    # Tool Exec
+    "pydantic>=2.7.0",
+    "pydantic-settings>=2.2.0",
+    "httpx>=0.27.0",
+    "tiktoken>=0.7.0",
+
+    # Terminal UI
+    "rich>=13.7.0",
+]
+
+[project.scripts]
+vere = "vere.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/vere"]
